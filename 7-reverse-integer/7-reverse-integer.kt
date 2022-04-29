@@ -1,17 +1,24 @@
 class Solution {
     fun reverse(x: Int): Int {
         try{
-            var sign_ = 1
+            var sign_ =
             if (x < 0){
-                sign_ *= -1
+                -1
+            } else 1
+            var x_c = Math.abs(x)
+            
+            var str = ""
+            while (x_c != 0){
+                val ch = x_c % 10
+                if (((str == "") and (ch != 0)) or (str != "")){
+                    str += ch
+                }
+                x_c /= 10
             }
-            var str = Math.abs(x).toString().removePrefix ("0")
-            str = str.reversed()
-            if (str != ""){
-                return sign_ * str.toInt()
-            }
-            else
-                return x
+            
+            return sign_ * str.toInt()
+            
+
             }
         catch(e: Exception){
             return 0
