@@ -1,13 +1,12 @@
 class Solution {
     fun reverse(x: Int): Int {
         try{
-            var sign_ =
-            if (x < 0){
-                -1
-            } else 1
             var x_c = Math.abs(x)
             
-            var str = ""
+            var str = if (x < 0){
+                "-"
+            } else ""
+            
             while (x_c != 0){
                 val ch = x_c % 10
                 if (((str == "") and (ch != 0)) or (str != "")){
@@ -16,7 +15,7 @@ class Solution {
                 x_c /= 10
             }
             
-            return sign_ * str.toInt()
+            return str.toInt()
             
 
             }
