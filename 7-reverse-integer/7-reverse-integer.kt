@@ -10,7 +10,7 @@ class Solution {
             if (str != ""){
                 return sign_ * str.toInt()
             }
-            else 
+            else
                 return x
             }
         catch(e: Exception){
