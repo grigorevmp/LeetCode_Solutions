@@ -1,23 +1,21 @@
 class Solution {
-    
-    fun returnParenthesis(str: String, o: Int, max: Int): List<String> {
-        if((max == 0) and (o == 0)){
-            return arrayListOf(str)
-        }
-        
-        if (o > 0){
-          if(max > 0){
-               return returnParenthesis(str+"(", o+1, max-1) + returnParenthesis(str+")", o-1, max)
-          } else {
-              return returnParenthesis(str+")", o-1, 0)
-          }
-        } else{
-            return returnParenthesis(str+"(", o+1, max-1)
-        }
-    }
+    private val result = mutableListOf<String>()
     
     fun generateParenthesis(n: Int): List<String> {
-        return returnParenthesis("", 0, n)
+        generateParenthesisRec("", n, n)
+        return result
+    }
+    
+    private fun generateParenthesisRec(text: String, left: Int, right: Int) {
+        if (left > 0) {
+            generateParenthesisRec(text+"(", left-1, right)
+        }
+            
+        if (right > 0 && right > left) {
+            generateParenthesisRec(text + ")", left, right-1)
+        } else if (left + right == 0) {
+            result.add(text)
+        }
     }
 }
 
