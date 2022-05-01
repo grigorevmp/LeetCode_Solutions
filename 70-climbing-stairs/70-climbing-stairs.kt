@@ -1,6 +1,6 @@
 class Solution {
     fun climbStairs(n: Int): Int {
-                if (n == 1)
+        if (n == 1)
             return 1
         val res: MutableList<Int> = arrayListOf(1, 1, 2)
 
