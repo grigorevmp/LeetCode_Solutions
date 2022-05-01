@@ -1,13 +1,10 @@
 class Solution {
     fun climbStairs(n: Int): Int {
-     var dp = IntArray(55, {0})
-        dp[1] = 1
-        dp[2] = 2
-
-        (3 .. n).forEach { i ->
-            dp[i] = dp[i-1]+dp[i-2]
+        var first = 1
+        var second = 1
+        repeat(n - 1) {
+            first += second.apply { second = first }
         }
-        return dp[n]
-        
+        return first
     }
 }
