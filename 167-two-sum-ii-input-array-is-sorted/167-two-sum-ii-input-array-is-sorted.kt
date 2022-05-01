@@ -1,6 +1,6 @@
 class Solution {
     fun twoSum(numbers: IntArray, target: Int): IntArray {
-                var i = 0
+        var i = 0
         var j = numbers.size - 1
         while (i <= j){
             var sum = numbers[i] + numbers[j]
