@@ -1,14 +1,13 @@
 class Solution {
     fun climbStairs(n: Int): Int {
-        if (n == 1)
-            return 1
-        val res: MutableList<Int> = arrayListOf(1, 1, 2)
+     var dp = IntArray(55, {0})
+        dp[1] = 1
+        dp[2] = 2
 
-
-        for(i in 3..n){
-            res.add(res[i-1] + res[i-2])
-
+        (3 .. n).forEach { i ->
+            dp[i] = dp[i-1]+dp[i-2]
         }
-        return res[n]
+        return dp[n]
+        
     }
 }
