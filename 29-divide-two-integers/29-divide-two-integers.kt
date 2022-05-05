@@ -7,32 +7,33 @@ class Solution {
         else if (divisor == 1) return Int.MIN_VALUE
     }
 
-    var a = dividend.toLong()
-    var b = divisor.toLong()
+    var dividend_long = dividend.toLong()
+    var divisor_long = divisor.toLong()
+    
     var sign = 1
 
-    if (a < 0) {
-        a = -a
+    if (dividend_long < 0) {
+        dividend_long = -dividend_long
         sign = -sign
     }
 
-    if (b < 0) {
-        b = -b
+    if (divisor_long < 0) {
+        divisor_long = -divisor_long
         sign = -sign
     }
 
     var res = 0L
 
-    while (a >= b){
-        var sum = b
+    while (dividend_long >= divisor_long){
+        var sum = divisor_long
         var pow = 1L
 
-        while (sum + sum <= a) {
+        while (sum + sum <= dividend_long) {
             sum += sum
             pow += pow
         }
 
-        a -= sum
+        dividend_long -= sum
         res += pow
     }
 
